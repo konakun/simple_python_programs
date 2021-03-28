@@ -1,23 +1,26 @@
 from menu_designer import *
 import random
-import chardet
 
 PROJECT_PATH = os.path.dirname(__file__)
 optionList = ["Yes", "No"]
 
 def generateLowerCase():
+    random.seed()
     keychar = chr(random.randint(97,122))
     return keychar
 
 def generateUpperCase():
-    keychar = chr(random.randint(65,90))
+    random.seed()
+	keychar = chr(random.randint(65,90))
     return keychar
 
 def generateNumber():
+	random.seed()
     keychar = chr(random.randint(48,57))
     return keychar
 
 def generateSymbol():
+    random.seed()
     symbol_part = random.randint(1,4)
     if symbol_part == 1:
         return chr(random.randint(33,47))
@@ -90,7 +93,6 @@ def generator(length, numbers, symbols):
     with open('password.txt', 'a') as file:
         file.write(key + '\n')
     print("It will be saved in plain text file passwords.txt")
-    pass
 
 def run():
     correct = False
